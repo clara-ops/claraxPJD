@@ -1,16 +1,15 @@
+using System;
 using UnityEngine;
 
-public class Chave : MonoBehaviour
+public class Coin : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject textoDeVitoria;
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            textoDeVitoria.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 }
